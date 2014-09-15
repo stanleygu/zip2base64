@@ -15,6 +15,8 @@ angular.module('zip2base64App')
           var fr = new FileReader();
           fr.onload = function() {
             $scope.base64String = fr.result.replace(/data.*base64/, '');
+            $scope.base64EncodedUrl = 'http://carbon.sysb.io/import?format=base64' +
+              '&archive=' + $scope.base64String;
             $scope.dropzone._finished(file, 'Done!');
             $scope.$digest();
           };
