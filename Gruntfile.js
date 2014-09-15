@@ -86,6 +86,20 @@ module.exports = function (grunt) {
           }
         }
       },
+      buildcontrol: {
+        options: {
+          dir: 'dist',
+          commit: true,
+          push: true,
+          message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        },
+        pages: {
+          options: {
+            remote: 'https://github.com/stanleygu/zip2base64.git',
+            branch: 'gh-pages'
+          }
+        }
+      },
       test: {
         options: {
           port: 9001,
