@@ -12,7 +12,7 @@
     "angular-animate": "~1.2.0",
     "angular-touch": "~1.2.0",
     "angular-route": "~1.2.0",
-    "angular-ui-utils": "bower",
+    "angular-ui-utils": "bower-jq",
     "dropzone": "~3.10.2"
   },
   "devDependencies": {
