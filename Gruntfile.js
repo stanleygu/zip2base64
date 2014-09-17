@@ -355,9 +355,9 @@ module.exports = function(grunt) {
           dest: '<%= yeoman.dist %>'
         }, {
           expand: true,
-          cwd: '.',
+          cwd: 'bower_components/dropzone/downloads/images',
           dest: '<%= yeoman.dist %>/images',
-          src: ['bower_components/dropzone/downloads/images/*']
+          src: ['*']
         }]
       },
       styles: {
