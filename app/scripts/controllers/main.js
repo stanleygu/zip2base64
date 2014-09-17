@@ -9,15 +9,26 @@
  */
 angular.module('zip2base64App')
   .controller('MainCtrl', function($scope) {
+    $scope.settings = {
+      archive: '1'
+    };
+    var update = function() {
+      $scope.base64EncodedUrl = 'http://carbon.sysb.io/import?encoding=base64' +
+      '&format=' + 'text' +
+        '&archive=' + $scope.settings.archive +
+        '&resource=' + $scope.base64String;
+    };
+    $scope.$watch('settings.archive', function() {
+      update();
+    });
     $scope.dropzoneConfig = {
       init: function() {
         $scope.dropzone = this.on('addedfile', function(file) {
           var fr = new FileReader();
           fr.onload = function() {
             $scope.base64String = fr.result.replace(/data.*base64/, '');
-            $scope.base64EncodedUrl = 'http://carbon.sysb.io/import?format=base64' +
-              '&archive=' + $scope.base64String;
             $scope.dropzone._finished(file, 'Done!');
+            update();
             $scope.$digest();
           };
           fr.readAsDataURL(file);

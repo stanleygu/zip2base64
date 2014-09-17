@@ -353,6 +353,11 @@ module.exports = function(grunt) {
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
+          cwd: '.',
+          dest: '<%= yeoman.dist %>/images',
+          src: ['bower_components/dropzone/downloads/images/*']
         }]
       },
       styles: {
