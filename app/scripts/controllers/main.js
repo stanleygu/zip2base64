@@ -16,7 +16,7 @@ angular.module('zip2base64App')
       $scope.base64EncodedUrl = 'http://carbon.sysb.io/import?encoding=base64' +
       '&format=' + 'text' +
         '&archive=' + $scope.settings.archive +
-        '&resource=' + $scope.base64String;
+        '&resource=' + encodeURIComponent($scope.base64String);
     };
     $scope.$watch('settings.archive', function() {
       update();
